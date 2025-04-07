@@ -3,15 +3,15 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Home from "./Components/Home";
 import Lists from "./Components/Lists";
-import Signin from "./Components/Signin";
-import Signup from "./Components/Signup";
+import Signin from "./Signin";
+import Signup from "./Signup";
 import Load from "./imgs/spin.gif";
-import { app } from "./Firebase";
+import { app } from "../Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import ProductPage from "./Components/ProductPage";
 import CartSection from "./Components/CartSection";
 import Payment from "./Components/Payment";
-import Profile from "./Components/Profile";
+import Profile from "./Profile";
 import Orders from "./Components/Orders";
 import Error from "./Components/Error";
 
@@ -56,6 +56,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/account" element={<Profile />} />
             <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/account/shipping-details" element={<Profile />}></Route>
             <Route path="*" element={<Error/>} />
           </>
         )}

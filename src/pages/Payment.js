@@ -1,6 +1,6 @@
 import { React, useEffect, useState, useRef } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import "./payment.css";
 import { app } from "../Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -13,7 +13,7 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { AddOrder } from "../action/Orders";
 import { useSelector, useDispatch } from "react-redux";
 import swal from "sweetalert";
-import LowerNav from "./LowerNav";
+import LowerNav from "../Components/LowerNav";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

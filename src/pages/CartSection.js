@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import "./cart.css";
 import { AddToList, RemoveList } from "../action/List";
 import { IncreaseQuantity, DecreaseQuantity } from "../action/Cart";
@@ -11,7 +11,7 @@ import Delete from "../imgs/delete.png";
 import Empty from "../imgs/cart-empty.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import LowerNav from "./LowerNav";
+import LowerNav from "../Components/LowerNav";
 
 function CartSection() {
   const CartItems = useSelector((state) => state.CartItemsAdded.CartItems);

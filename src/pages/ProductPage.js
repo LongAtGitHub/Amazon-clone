@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import "./productpage.css";
 import Rating from "../imgs/rating.png";
 import added from "../imgs/added.png";
@@ -9,7 +9,7 @@ import add from "../imgs/not-added.png";
 import { AddToCart, RemoveCart } from "../action/Cart";
 import { useSelector, useDispatch } from "react-redux";
 import VanillaTilt from "vanilla-tilt";
-import LowerNav from "./LowerNav";
+import LowerNav from "../Components/LowerNav";
 
 function ProductPage() {
   const { id } = useParams();

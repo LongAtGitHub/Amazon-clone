@@ -235,7 +235,8 @@ function Navbar() {
             onClick={() => navigate("/account")}
             src={
               user && user.photoURL
-                ? user.photoURL.replace(/^http:\/\//i, "https://") //replaces the http with https
+                // ? user.photoURL.replace(/^http:\/\//i, "https://") //replaces the http with https
+                ? Default
                 : Default
             }
             className="default"

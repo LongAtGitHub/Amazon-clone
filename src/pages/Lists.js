@@ -4,12 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Added from "../imgs/red-heart.png";
 import Add from "../imgs/heart.png";
-import Footer from "./Footer";
+import Footer from "../Components/Footer";
 import rating from "../imgs/rating.png";
-import Navbar from "./Navbar";
+import Navbar from "../Components/Navbar";
 import empty from "../imgs/empty.png";
 import { NavLink } from "react-router-dom";
-import LowerNav from "./LowerNav";
+import LowerNav from "../Components/LowerNav";
 import "./lists.css";
 
 function Lists() {

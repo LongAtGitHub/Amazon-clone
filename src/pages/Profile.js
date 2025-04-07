@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 import "./profile.css";
 import { app } from "../Firebase";
 import Default from "../imgs/default.png";
 import USER from "../imgs/user.png";
 import contact from "../imgs/contact.png";
-import LowerNav from "./LowerNav";
+import LowerNav from "../Components/LowerNav";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
@@ -20,14 +20,15 @@ function Profile() {
   document.title = "Profile section"
 
   const checkDP = () => {
-    if (user && user.photoURL && user.photoURL.includes("https")) {
-      setImage(user.photoURL);
-    } else if (user && user.photoURL && user.photoURL.includes("http")) {
-      const newImage = user.photoURL.replace(/^http:\/\//i, "https://");
-      setImage(newImage);
-    } else {
-      setImage(Default);
-    }
+    // if (user && user.photoURL && user.photoURL.includes("https")) {
+    //   setImage(user.photoURL);
+    // } else if (user && user.photoURL && user.photoURL.includes("http")) {
+    //   const newImage = user.photoURL.replace(/^http:\/\//i, "https://");
+    //   setImage(newImage);
+    // } else {
+    //   setImage(Default);
+    // }
+    setImage(Default)
   };
 
   useEffect(() => {
@@ -103,6 +104,15 @@ function Profile() {
                   </div>
                   <p className="users-mail">{user ? `${user.email.slice(0,15) + "..."}` : ""}</p>
                 </div>
+
+                <div className="personal-name" onClick={() => {navigate("./shipping-details")}}>
+                  <div className="mail-section">
+                    <p className="mail-data">Shipping details</p>
+                    <img src={contact} className="mail-photo" />
+                  </div>
+                  <p> </p>
+                </div>
+
               </div>
             </div>
           </div>
