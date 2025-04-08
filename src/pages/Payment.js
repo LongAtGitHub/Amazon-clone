@@ -47,7 +47,7 @@ function Payment() {
   const [cardDisplay, setcardDisplay] = useState("none");
   const [currentDateTime, setCurrentDateTime] = useState("");
 
-  document.title = "Payment section"
+  document.title = "Payment section";
 
   const notify1 = () =>
     toast.error("Please fill-up the form correctly!", {
@@ -372,7 +372,7 @@ function Payment() {
                     <p className="country-name">Country*</p>
                     <input
                       type="text"
-                      placeholder="India"
+                      placeholder="USA"
                       onChange={handleCountry}
                       onBlur={handleCountryBlur}
                       value={Country}
@@ -446,7 +446,7 @@ function Payment() {
                     )}
                   </div>
                   <div className="user-pincode">
-                    <p className="user-pin-number">Pincode*</p>
+                    <p className="user-pin-number">Zip Code*</p>
                     <input
                       type="number"
                       placeholder="Pincode"
