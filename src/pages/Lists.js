@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { AddToList, RemoveList } from "../action/List";
+import { AddToList, RemoveList } from "../redux/action/List";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Added from "../imgs/red-heart.png";
@@ -27,6 +27,7 @@ function Lists() {
 
   const isAdded = (itemId) => {
     // Check if the item id is in the added ids
+    // write api here
     return AddedIds.includes(itemId);
   };
 

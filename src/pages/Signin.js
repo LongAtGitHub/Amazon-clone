@@ -6,6 +6,7 @@ import BG2 from "../imgs/login-BG2.png";
 import google from "../imgs/google.png";
 import { Link, useNavigate } from "react-router-dom";
 import { app } from "../Firebase";
+import { useDispatch } from "react-redux";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -24,6 +25,7 @@ function Signin() {
   const [PasswordError, setPasswordError] = useState("");
   const [bgLoaded, setBgLoaded] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   document.title = "Amazon"
 
@@ -71,18 +73,30 @@ function Signin() {
   };
 
   const GoogleAuth = async () => {
-    signInWithPopup(auth, provider)
-      .then(() => {
-        navigate("/home");
-      })
-      .catch((error) => {
-        swal({
-          title: "Error!",
-          text: error.message,
-          icon: "error",
-          buttons: "Ok",
-        });
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log(result)
+      const user = result.user;
+      console.log(user)
+      // ✅ Dispatch to Redux store
+      dispatch({
+        type: "SET_USER",
+        payload: {
+          uid: user.uid,
+          email: user.email,
+        },
       });
+
+
+      navigate("/home");
+    } catch (error) {
+      swal({
+        title: "Error!",
+        text: error.message,
+        icon: "error",
+        buttons: "Ok",
+      });
+    }
   };
 
   const handleBgLoad = () => {

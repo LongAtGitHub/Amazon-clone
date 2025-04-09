@@ -3,7 +3,7 @@ import "../deals.css";
 import Add from "./Img/heart.png";
 import Added from "./Img/red-heart.png";
 import rating from "./Img/rating.png";
-import { AddToList, RemoveList } from "../../action/List";
+import { AddToList, RemoveList } from "../../redux/action/List";
 import { useSelector, useDispatch } from "react-redux";
 import Footer from "../Footer";
 import Spinner from "../Spinner";

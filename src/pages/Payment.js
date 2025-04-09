@@ -10,7 +10,7 @@ import american from "../imgs/american.png";
 import visa from "../imgs/visa2.png";
 import master from "../imgs/master.png";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { AddOrder } from "../action/Orders";
+import { AddOrder } from "../redux/action/Orders";
 import { useSelector, useDispatch } from "react-redux";
 import swal from "sweetalert";
 import LowerNav from "../Components/LowerNav";

@@ -16,6 +16,7 @@ import {
 import swal from "sweetalert";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -30,6 +31,7 @@ function Signup() {
   const [NameError, setNameError] = useState("");
 
   document.title = "Amazon"
+  const dispatch = useDispatch();
 
   const notify1 = () =>
     toast.error("Please fill-up all the credentials properly!", {
@@ -108,18 +110,30 @@ function Signup() {
   };
 
   const GoogleAuth = async () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        navigate("/home");
-      })
-      .catch((error) => {
-        swal({
-          title: "Error!",
-          text: error.message,
-          icon: "error",
-          buttons: "Ok",
-        });
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log(result)
+      const user = result.user;
+      console.log(user)
+      // ✅ Dispatch to Redux store
+      dispatch({
+        type: "SET_USER",
+        payload: {
+          uid: user.uid,
+          email: user.email,
+        },
       });
+
+
+      navigate("/home");
+    } catch (error) {
+      swal({
+        title: "Error!",
+        text: error.message,
+        icon: "error",
+        buttons: "Ok",
+      });
+    }
   };
 
   const handleBgLoad = () => {

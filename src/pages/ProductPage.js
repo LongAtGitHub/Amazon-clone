@@ -6,7 +6,7 @@ import "./productpage.css";
 import Rating from "../imgs/rating.png";
 import added from "../imgs/added.png";
 import add from "../imgs/not-added.png";
-import { AddToCart, RemoveCart } from "../action/Cart";
+import { AddToCart, RemoveCart } from "../redux/action/Cart";
 import { useSelector, useDispatch } from "react-redux";
 import VanillaTilt from "vanilla-tilt";
 import LowerNav from "../Components/LowerNav";

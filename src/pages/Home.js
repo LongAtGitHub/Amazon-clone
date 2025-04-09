@@ -3,10 +3,11 @@ import "./home.css";
 import Delivery from "../imgs/delivery.png";
 import Popular from "../Components/Category/Popular";
 import Navbar from '../Components/Navbar'
-
+import { useSelector } from "react-redux";
 function Home() {
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const { uid, email } = useSelector((state) => state.auth);
+  console.log(uid, email);
   document.title = "Amazon"
 
   const handleScroll = () => {
